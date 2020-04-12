@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "codes",
+  "info": {
+    "name": "Code"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "valid": {
+      "type": "boolean",
+      "default": true,
+      "required": false
+    },
+    "summary": {
+      "type": "string",
+      "required": true
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "codes",
+      "dominant": true
+    },
+    "game": {
+      "model": "game",
+      "via": "codes"
+    }
+  }
+}
